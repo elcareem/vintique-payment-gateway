@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Orders — Vintique</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./src/output.css"/>
+</head>
+<body class="bg-cream font-sans text-darkbrown">
+
+  <!-- NAVBAR -->
+  <nav class="sticky top-0 z-50 bg-cream/95 backdrop-blur-sm border-b border-parchment shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between py-2">
+      <a href="index.html" class="font-serif text-2xl font-bold text-brown flex items-center gap-2">
+         <img src="/frontend/public/image/836230a2-2ca2-471b-b559-c79b56e9cd14.jpeg" alt="logo" class="h-16 rounded-full">
+        Vintique</a>
+      <div class="flex items-center gap-4">
+        <a href="products.html" class="text-sm text-brown hover:text-amber transition-colors hidden md:block">Shop</a>
+        <button onclick="logout()" class="text-sm text-muted hover:text-rust transition-colors hidden md:block">Sign Out</button>
+        <a href="cart.html" class="relative p-2 text-brown hover:text-amber transition-colors">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6" stroke-width="1.8"/><path stroke-linecap="round" stroke-linejoin="round" d="M16 10a4 4 0 01-8 0"/></svg>
+          <span id="cart-count" class="absolute -top-0.5 -right-0.5 bg-rust text-white text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center">0</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Header -->
+    <div class="flex items-end justify-between mb-10">
+      <div>
+        <p class="text-amber text-xs tracking-[0.3em] uppercase font-sans mb-2">Account</p>
+        <h1 class="font-serif text-4xl text-brown">My Orders</h1>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="flex gap-1 bg-parchment/50 p-1 rounded-xl mb-8 w-fit">
+      <button onclick="filterOrders('all')" id="tab-all"
+        class="order-tab px-5 py-2 text-sm font-sans rounded-lg bg-white text-brown font-semibold shadow-sm transition-all">
+        All Orders
+      </button>
+      <button onclick="filterOrders('pending')" id="tab-pending"
+        class="order-tab px-5 py-2 text-sm font-sans rounded-lg text-muted hover:text-brown transition-all">
+        Pending
+      </button>
+      <button onclick="filterOrders('shipped')" id="tab-shipped"
+        class="order-tab px-5 py-2 text-sm font-sans rounded-lg text-muted hover:text-brown transition-all">
+        Shipped
+      </button>
+      <button onclick="filterOrders('delivered')" id="tab-delivered"
+        class="order-tab px-5 py-2 text-sm font-sans rounded-lg text-muted hover:text-brown transition-all">
+        Delivered
+      </button>
+    </div>
+
+    <!-- Orders List -->
+    <div id="orders-list" class="space-y-4">
+      <div class="skeleton h-28 rounded-2xl"></div>
+      <div class="skeleton h-28 rounded-2xl"></div>
+      <div class="skeleton h-28 rounded-2xl"></div>
+    </div>
+
+    <!-- Empty -->
+    <div id="orders-empty" class="hidden text-center py-20">
+      <p class="font-serif text-3xl text-muted mb-3">No orders yet</p>
+      <p class="text-sm text-muted mb-6">Your purchased items will appear here.</p>
+      <a href="products.html" class="inline-block bg-amber hover:bg-rust text-cream font-sans font-semibold text-sm px-8 py-3 rounded-xl transition-colors">
+        Browse the Collection
+      </a>
+    </div>
+  </div>
+
+  <script src="./js/app.js"></script>
+</body>
+</html>
